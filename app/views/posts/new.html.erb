@@ -1,0 +1,29 @@
+<h1>新規投稿ページ</h1>
+
+<%# <form action='/main' method='post'>
+    <input type = "text" name="content">
+    <input type = "submit" value="投稿する">
+</form>
+ %>
+<%= form_with url: "/posts", method: :post, local: true do |form| %>
+    <%= form.text_field :content %>
+    <%= form.submit '投稿する'%>
+<%end%>
+
+
+
+<%# ヘルパーメソッドとはrailsにおける、主にビューでHTMLタグを出現させたり
+テキストを加工するために使用するメソッドの総称です。
+
+form_with = 投稿ページなどにおけるフォームの実装
+link_to = リンクの実装
+
+オプション
+urlオプション = formの情報を送るリクエストのパスを指定
+methodオプション = formの情報を送るリクエストのHTTPメソッドを指定。
+オプションの初期値は:postなので、postメソッドを指定する場合は省力することが可能。
+localオプション = リモート送信を無効にするかどうかを指定。trueにすると無効になる
+
+ヘルパーメソッドを使用する理由
+1.パスの指定やrubyの埋め込みなどの記述がシンプルなため
+2.セキュリティ上の問題を解決するため %>
